@@ -35,11 +35,16 @@ function solution(str){
 
 
 function filter_list(l) {
-    const numA = []
-    l.filter(l => {
-        if(Number.isInteger(l)){
-        numA.push(l)
-        }
-        })
-        return numA
+    return l.filter(l => Number.isInteger(l));
 }
+
+var uniqueInOrder=function(iterable){
+    const result = [ ]
+  
+    for(let i = 0; i < iterable.length; i++){
+      if(iterable[ i ] !== iterable[i + 1]){
+        result.push(iterable[ i ])
+      }
+    }
+    return result
+  }
