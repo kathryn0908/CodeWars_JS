@@ -12,11 +12,19 @@ function isValidWalk(walk) {
     }
   }
 
-  function highAndLow(numbers){
+function highAndLow(numbers){
     const numArray = numbers.split(' ');
     const n = numArray.map(num => {
-      return parseInt(num, 10)
+        return parseInt(num, 10)
     })
-  
-     return Math.max(...n) + ' '+  Math.min(...n)
-  }
+
+    return Math.max(...n) + ' '+  Math.min(...n)
+}
+
+function findShort(s){
+    let wordArray = s.split(' ');
+    const nums = wordArray.map(word => {
+        return word.length
+    })
+    return Math.min(...nums)
+}
