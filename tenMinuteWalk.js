@@ -11,3 +11,12 @@ function isValidWalk(walk) {
           return n == s && w == e ? true : false
     }
   }
+
+  function highAndLow(numbers){
+    const numArray = numbers.split(' ');
+    const n = numArray.map(num => {
+      return parseInt(num, 10)
+    })
+  
+     return Math.max(...n) + ' '+  Math.min(...n)
+  }
