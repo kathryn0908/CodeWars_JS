@@ -28,3 +28,18 @@ function findShort(s){
     })
     return Math.min(...nums)
 }
+
+function solution(str){
+    return str.split('').reverse().join('');
+}
+
+
+function filter_list(l) {
+    const numA = []
+    l.filter(l => {
+        if(Number.isInteger(l)){
+        numA.push(l)
+        }
+        })
+        return numA
+}
