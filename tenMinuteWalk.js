@@ -62,3 +62,35 @@ function findOdd(A) {
     const key = Object.keys(counts)
     return parseInt(key[i], 10)
 }
+
+
+function deleteNth(arr,n){
+    let newArr = [];
+    function duplicates(item) {
+      let count = 0;
+      
+      for (let i = 0; i < newArr.length; i++) {
+        if (item === newArr[i]) {
+          console.log(item)
+          count++;
+        }
+      console.log(count)
+        
+      }
+      return count;
+    }
+   
+    for(let i=0; i < arr.length; i++){
+      if(duplicates(arr[i]) < n){
+        newArr.push(arr[i]);
+      }
+    }
+   return newArr;
+    
+}
+
+function findNextSquare(sq) {
+
+    return Number.isInteger(Math.sqrt(sq)) ? Math.pow(Math.sqrt(sq)+1, 2) : -1
+  
+}
