@@ -47,4 +47,18 @@ var uniqueInOrder=function(iterable){
       }
     }
     return result
-  }
+}
+
+function isTriangle(a,b,c){
+    return (a+b > c && a+c > b && b+c > a) ? true : false
+}
+
+function findOdd(A) {
+    var counts = {};
+    A.forEach(function(x) { counts[x] = (counts[x] || 0)+1; });
+    const val = Object.values(counts)
+    const n = val.find(c => c%2 != 0)
+    const i = (val.indexOf(n))
+    const key = Object.keys(counts)
+    return parseInt(key[i], 10)
+}
