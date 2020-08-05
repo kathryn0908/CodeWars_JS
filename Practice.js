@@ -212,12 +212,56 @@ if (!text) {
 var chars = text.split('');
 while (n-- > 0) {
   var oddChars = chars.filter((c, i) => i & 1);
-  console.log(chars)
-  console.log(oddChars)
   var evenChars = chars.filter((c, i) => !(i & 1));
   chars = oddChars.concat(evenChars);
 }
 return chars.join('');
 }
 
-encrypt(text, 2)
+
+function likes(names) {
+  return names.length == 0 ? 'no one likes this' 
+  : names.length == 1 ? names.map(n => n+' likes this').join('') 
+  : names.length <= 2 ? names.map((n,i) => names[i] +' and ' + names[i+1]).slice(0, names.length-1).join('') +' like this'
+  : names.length == 3 ? names[0] +', ' + names[1] +' and ' + names[2] +' like this'  
+  : names.length > 3 ?  names[0] +', ' + names[1] +' and ' + (names.length-2) +' others like this'
+  : null
+}
+
+function count (string) {  
+  var obj = {};
+  !string ? {} : string.split('').forEach(l => obj[l] ? obj[l]+=1 : obj[l]=1)
+   return obj;
+}
+
+function diamond(n){
+  if (n < 0 || !(n % 2)) return null; 
+  const middleIndex = Math.floor(n / 2);
+  
+  return Array.apply(null, {length: n})
+      .map((el, index) => {
+        const indentation = Math.abs(index - middleIndex);
+        const numberOfAsterisks = n - indentation * 2;
+        return Array(indentation + 1).join(' ') + Array(numberOfAsterisks + 1).join('*');
+      })
+      .join('\n') + '\n';
+}
+
+var str = 'This is is a test test string'
+
+function removeDuplicates(str){
+ let unique = [...new Set(str.split(' '))].join(' ');
+ console.log(unique);
+  console.log(str.split(' ').filter((s, i) => str.split(' ').indexOf(s) === i).join(' '))
+}
+
+
+
+var arr = [1,2,3,4,5]
+function flatten(arr){
+  let newA = arr.join(',').split(',');
+  console.log(newA.map(n => parseInt(n,10)))
+
+}
+
+flatten(arr);
