@@ -264,4 +264,42 @@ function flatten(arr){
 
 }
 
-flatten(arr);
+function findUniq(arr) {
+  let unique = {}
+  
+  arr.forEach(a => {
+    unique[a] ? unique[a] += 1 : unique[a] = 1
+  })
+  
+  const val = Object.values(unique)
+  
+  const i = val.indexOf(1)
+  
+  const key = Object.keys(unique)
+  
+  return parseFloat(key[i]);
+}
+
+var maxSequence = function(arr){
+  const neg = (arr) => {
+    nArr = []
+    arr.forEach(a => nArr.push(Math.sign(a)))
+    return nArr.every(e => e == -1)
+  }
+  
+  const sum = (arr) => {
+  
+    let maxSum = 0;
+    let partialSum = 0;
+
+  for (let i of arr) { 
+    partialSum += i; 
+    maxSum = Math.max(maxSum, partialSum); 
+    if (partialSum < 0) partialSum = 0; 
+  }
+
+  return maxSum;
+}
+  
+ return arr.length < 1 || neg == true ? 0  : sum(arr)
+}
