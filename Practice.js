@@ -291,3 +291,24 @@ var maxSequence = function(arr){
   
  return arr.length < 1 || neg == true ? 0  : sum(arr)
 }
+
+function solution(string) {
+  return string.split('').map(s => s == s.toUpperCase() ? " " + s : s).join('')
+}
+
+function rot13(message){
+  const alpha = 'abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz'.split('')
+  const Alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
+  const a = /^[A-Za-z]+$/;
+  const find = (l) => {
+    const array = []
+    l === l.toUpperCase() 
+    
+    ? Alpha.find(al => al == l ? array.push(Alpha.slice(Alpha.indexOf(l), Alpha.indexOf(l)+14).pop()) : null)
+
+    : alpha.find(al => al == l ? array.push(alpha.slice(alpha.indexOf(l), alpha.indexOf(l)+14).pop()) : null)
+    
+    return array.join('')
+  }
+ return message.split('').map(l => l.match(a) ? find(l) : l).join('')
+}
