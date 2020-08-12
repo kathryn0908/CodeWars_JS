@@ -77,3 +77,23 @@ function rot13(message){
     return char;
   }).join('');
 }
+
+
+function expandedForm(num) {
+  const ar = num.toString().split('');
+  const nA = []
+
+   ar.forEach(a => {
+     nA.push(a != 0 && ? a + '0'.repeat((ar.length-1) - ar.indexOf(a)) + ' + ' : null)
+   } )
+
+  const f = nA.join('').split('');
+
+  return f.slice(0, f.length-3).join('');
+}
+
+const dupes = {}
+array.forEach((item,index) => {
+  dupes[item.name] = dupes[item.name] || [];
+  dupes[item.name].push(index);
+});  
