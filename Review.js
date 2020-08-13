@@ -83,8 +83,8 @@ function expandedForm(num) {
   const ar = num.toString().split('');
   const nA = []
 
-   ar.forEach(a => {
-     nA.push(a != 0 && ? a + '0'.repeat((ar.length-1) - ar.indexOf(a)) + ' + ' : null)
+   ar.forEach((a, i) => {
+     nA.push(a != 0  a + '0'.repeat((ar.length-1) - ar.indexOf(a[i])) + ' + ' : null)
    } )
 
   const f = nA.join('').split('');
@@ -97,3 +97,11 @@ array.forEach((item,index) => {
   dupes[item.name] = dupes[item.name] || [];
   dupes[item.name].push(index);
 });  
+
+const expandedForm = n => n.toString()
+                            .split("")
+                            .reverse()
+                            .map( (a, i) => a * Math.pow(10, i))
+                            .filter(a => a > 0)
+                            .reverse()
+                            .join(" + ");
