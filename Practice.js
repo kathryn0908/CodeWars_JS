@@ -312,3 +312,47 @@ function rot13(message){
   }
  return message.split('').map(l => l.match(a) ? find(l) : l).join('')
 }
+
+function expandedForm(num) {
+  const ar = num.toString().split('');
+  const nA = []
+
+   ar.forEach((a, i) => {
+     nA.push(a != 0 ? a + '0'.repeat((ar.length-1) - i) : null)
+   } )
+
+  const f= nA.filter(a => a > 0)
+  
+  return f.join(' + ')
+}
+
+
+
+var encryptThis = function(text) {
+  
+  const arr = text.split(' ')
+  
+  const ascii = arr.map(a => a.split('').shift())
+ 
+  const uni = ascii.map(a => a.charCodeAt(0))
+  
+  const splitArr = arr.map(a => a.split('').slice(1))
+  
+  const joinArr = []
+  splitArr.forEach((a) => { 
+     let lEnd = a.shift()
+     let l = a.pop()
+     a.unshift(l)
+     a.push(lEnd)
+     joinArr.push(a.join(''))
+  })
+  
+  
+  const final = joinArr.map((j, i) => {
+    let s = j.split('')
+    s.unshift(uni[i])
+    return s.join('')
+  })
+  
+ return final.join(' ')
+}
