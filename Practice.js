@@ -353,6 +353,11 @@ var encryptThis = function(text) {
     s.unshift(uni[i])
     return s.join('')
   })
-  
+
  return final.join(' ')
+}
+
+function domainName(url){
+  var removed = url.replace(/http:|www.|https:|\//g,"")
+  return removed.replace(/\..*$/, '')
 }
