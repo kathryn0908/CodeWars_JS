@@ -361,3 +361,9 @@ function domainName(url){
   var removed = url.replace(/http:|www.|https:|\//g,"")
   return removed.replace(/\..*$/, '')
 }
+
+function isPrime(num) {
+  for(var i = 2; i < num; i++)
+    if(num % i === 0) return false;
+  return num > 1;
+}

@@ -105,3 +105,22 @@ const expandedForm = n => n.toString()
                             .filter(a => a > 0)
                             .reverse()
                             .join(" + ");
+        
+function array_diff(a, b) {
+  var newArray = []; 
+  for (var i=0; i<a.length; i++) {
+    if (b.length>=1) {
+      for (var j=0; j<b.length; j++) {
+        if (a[i] !== b[j]) {
+          newArray.push(a[i]);
+        } 
+      }     
+    } else {
+      newArray = a; 
+    } 
+    
+  
+  }
+  return newArray;
+    
+  }
