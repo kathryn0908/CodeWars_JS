@@ -1,5 +1,6 @@
 const minusButton = document.querySelector('#minus');
 const plusButton = document.querySelector('#plus');
+const heartButton = document.querySelector('#heart');
 
 
 function incrementalCounter(){
@@ -25,3 +26,12 @@ function incrementCount(){
     document.querySelector('#counter').textContent = numCount+1;
 }
 
+heartButton.addEventListener('click', like)
+let num = 0;
+function like(){
+    let liked = document.createElement('p')
+    let counter = document.querySelector('#counter').innerHTML
+    const numberOfLikes= num++;
+    liked.innerText = numberOfLikes + ' liked ' + counter
+    document.querySelector('.likes').append(liked)
+}
